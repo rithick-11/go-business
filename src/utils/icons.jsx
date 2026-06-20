@@ -40,14 +40,3 @@ const CustomIcon = ({ type, className }) => {
 
 export default CustomIcon
 
-
-const icons = {
-    balance: FaDollarSign,
-    discountPct: FaCreditCard,
-    totalRef: FiLink,
-    discountAmt: GiSandsOfTime,
-    commissionAmt: LuPercent,
-    totalEarn: FaSackDollar,
-    commissionDisc: FaUserFriends,
-    bankTransfer: BiTransfer
-}

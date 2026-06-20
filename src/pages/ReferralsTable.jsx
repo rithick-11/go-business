@@ -11,7 +11,6 @@ const formatDate = (d) => {
 }
 
 const formatProfit = (num) => {
-  // profit may be number (like 259300) or string; format as USD no decimals
   const n = Number(num || 0)
   return n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
 }
@@ -28,7 +27,6 @@ const ReferralsTable = ({ referrals = [] }) => {
   const total = rows.length
   const totalPages = Math.max(1, Math.ceil(total / pageSize))
 
-  // clamp page
   const currentPage = Math.min(Math.max(1, page), totalPages)
   const startIdx = (currentPage - 1) * pageSize
   const endIdx = Math.min(startIdx + pageSize, total)

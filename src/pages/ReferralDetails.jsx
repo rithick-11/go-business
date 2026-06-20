@@ -30,21 +30,18 @@ const ReferralDetails = () => {
         const payload = res.data || {}
         const dataObj = payload.data || payload
 
-        // dataObj may be a single row object or an object containing referrals array
         if (!dataObj) {
           setNotFound(true)
           setRow(null)
           return
         }
 
-        // if dataObj has id and matches, accept
         if (dataObj.id && String(dataObj.id) === String(id)) {
           setRow(dataObj)
           setNotFound(false)
           return
         }
 
-        // if dataObj.referrals is an array, find match
         const list = Array.isArray(dataObj.referrals) ? dataObj.referrals : dataObj.referrals || dataObj.referrals === undefined ? dataObj.referrals : null
 
         if (Array.isArray(list)) {
@@ -56,7 +53,6 @@ const ReferralDetails = () => {
           }
         }
 
-        // Some API variants might return the row directly under dataObj (not dataObj.id) — check nested
         if (dataObj.data && typeof dataObj.data === 'object') {
           const maybe = dataObj.data
           if (maybe.id && String(maybe.id) === String(id)) {
